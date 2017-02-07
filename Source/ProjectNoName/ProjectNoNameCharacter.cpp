@@ -134,6 +134,7 @@ void AProjectNoNameCharacter::SetupPlayerInputComponent(class UInputComponent* P
 
 void AProjectNoNameCharacter::OnFire()
 {
+	/*
 	// try and fire a projectile
 	if (ProjectileClass != NULL)
 	{
@@ -178,6 +179,7 @@ void AProjectNoNameCharacter::OnFire()
 			AnimInstance->Montage_Play(FireAnimation, 1.f);
 		}
 	}
+	*/
 }
 
 void AProjectNoNameCharacter::OnResetVR()
