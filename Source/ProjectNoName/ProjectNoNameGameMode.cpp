@@ -42,6 +42,7 @@ void AProjectNoNameGameMode::Tick(float DeltaSeconds) {
     if (this->CurrentCharacter != nullptr && this->CurrentWidget != nullptr) {
         this->CurrentWidget->SetGoldText(TEXT("0G"));
         this->CurrentWidget->SetLevelText(TEXT("1"));
+        this->CurrentWidget->SetLifeDisplay(49.f);
         this->CurrentWidget->SetScoreText(TEXT("0"));
         this->CurrentWidget->SetNbWaveText(TEXT("1"));
         this->CurrentWidget->SetEnemiesText(TEXT("0"), TEXT("0"));
