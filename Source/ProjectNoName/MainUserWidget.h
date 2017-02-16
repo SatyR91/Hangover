@@ -4,6 +4,7 @@
 #include "Blueprint/UserWidget.h"
 #include "Runtime/UMG/Public/Components/TextBlock.h"
 #include "Runtime/UMG/Public/Components/Image.h"
+#include "Runtime/UMG/Public/Components/ProgressBar.h"
 #include "MainUserWidget.generated.h"
 
 UCLASS(BlueprintType, Blueprintable)
@@ -14,6 +15,7 @@ class PROJECTNONAME_API UMainUserWidget: public UUserWidget
 public:
     void Init();
     void SetGoldText(FString text);
+    void SetLevelProgress(int current, int total);
     void SetLevelText(FString text);
     void SetLifeDisplay(float life); // 0 -> 100
     void SetScoreText(FString text);
@@ -23,6 +25,7 @@ public:
     
 private:
     UTextBlock* GoldTextDisplay;
+    UProgressBar* LevelProgressDisplay;
     UTextBlock* LevelTextDisplay;
     TArray<UImage*> LifeLevelDisplay;
     UTextBlock* ScoreTextDisplay;

@@ -5,6 +5,7 @@
 
 void UMainUserWidget::Init() {
     this->GoldTextDisplay = Cast<UTextBlock>(this->GetWidgetFromName(TEXT("TextBlock_GoldHUD")));
+    this->LevelProgressDisplay = Cast<UProgressBar>(this->GetWidgetFromName(TEXT("ProgressBar_Level")));
     this->LevelTextDisplay = Cast<UTextBlock>(this->GetWidgetFromName(TEXT("TextBlock_LevelHUD")));
     for (int i = 0; i < 5; i += 1) {
         FName name = FName(*(TEXT("Image_Life_") + FString::FromInt(i)));
@@ -19,6 +20,9 @@ void UMainUserWidget::Init() {
     
     if (this->GoldTextDisplay == nullptr) {
         UE_LOG(LogTemp, Warning, TEXT("WARNING: fail init ref on MainUserWidget (this->GoldTextDisplay)"));
+    }
+    if (this->LevelProgressDisplay == nullptr) {
+        UE_LOG(LogTemp, Warning, TEXT("WARNING: fail init ref on MainUserWidget (this->LevelProgressDisplay)"));
     }
     if (this->LevelTextDisplay == nullptr) {
         UE_LOG(LogTemp, Warning, TEXT("WARNING: fail init ref on MainUserWidget (this->LevelTextDisplay)"));
@@ -39,6 +43,13 @@ void UMainUserWidget::SetGoldText(FString text) {
         this->GoldTextDisplay->SetText(FText::FromString(text));
     }
 }
+
+void UMainUserWidget::SetLevelProgress(int current, int total) {
+    if (this->LevelProgressDisplay != nullptr) {
+        this->LevelProgressDisplay->SetPercent(((float) current) / ((float) total));
+    }
+}
+
 
 void UMainUserWidget::SetLevelText(FString text) {
     if (this->LevelTextDisplay != nullptr) {
