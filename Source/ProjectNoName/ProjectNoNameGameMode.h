@@ -8,8 +8,16 @@ class AProjectNoNameGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
+    virtual void BeginPlay() override;
+    
 public:
 	AProjectNoNameGameMode();
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD")
+    TSubclassOf<class UUserWidget> PlayerHUDClass;
+    
+    UPROPERTY()
+    class UUserWidget* CurrentWidget;
 };
 
 

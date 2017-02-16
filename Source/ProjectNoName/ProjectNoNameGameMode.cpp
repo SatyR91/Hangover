@@ -4,6 +4,7 @@
 #include "ProjectNoNameGameMode.h"
 #include "ProjectNoNameHUD.h"
 #include "ProjectNoNameCharacter.h"
+#include "Blueprint/UserWidget.h"
 
 AProjectNoNameGameMode::AProjectNoNameGameMode()
 	: Super()
@@ -14,4 +15,18 @@ AProjectNoNameGameMode::AProjectNoNameGameMode()
 
 	// use our custom HUD class
 	HUDClass = AProjectNoNameHUD::StaticClass();
+}
+
+void AProjectNoNameGameMode::BeginPlay() {
+    Super::BeginPlay();
+    
+    AProjectNoNameCharacter* CurrentCharacter = Cast<AProjectNoNameCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
+    
+    if (this->PlayerHUDClass != nullptr) {
+        this->CurrentWidget = CreateWidget<UUserWidget>(GetWorld(), this->PlayerHUDClass);
+        
+        if(this->CurrentWidget != nullptr) {
+            this->CurrentWidget->AddToViewport();
+        }
+    }
 }
