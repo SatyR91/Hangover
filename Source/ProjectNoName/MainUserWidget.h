@@ -17,7 +17,7 @@ public:
     void SetGoldText(FString text);
     void SetLevelProgress(int current, int total);
     void SetLevelText(FString text);
-    void SetLifeDisplay(float life); // 0 -> 100
+    void SetLifeDisplay(double life); // 0 -> 100
     void SetScoreText(FString text);
     void SetNbWaveText(FString text);
     void SetEnemiesText(FString inLife, FString total);

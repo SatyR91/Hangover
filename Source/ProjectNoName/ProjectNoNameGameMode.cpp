@@ -43,7 +43,7 @@ void AProjectNoNameGameMode::Tick(float DeltaSeconds) {
         this->CurrentWidget->SetGoldText(TEXT("0G"));
         this->CurrentWidget->SetLevelProgress(2203, 10000);
         this->CurrentWidget->SetLevelText(TEXT("1"));
-        this->CurrentWidget->SetLifeDisplay(49.f);
+        this->CurrentWidget->SetLifeDisplay((this->CurrentCharacter->GetCurrentHealthOfPlayer() / this->CurrentCharacter->GetInitialHealth()) * 100.f);
         this->CurrentWidget->SetScoreText(TEXT("0"));
         this->CurrentWidget->SetNbWaveText(TEXT("1"));
         this->CurrentWidget->SetEnemiesText(TEXT("0"), TEXT("0"));
