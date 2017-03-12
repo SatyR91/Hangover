@@ -57,16 +57,16 @@ void UMainUserWidget::SetLevelText(FString text) {
     }
 }
 
-void UMainUserWidget::SetLifeDisplay(float life) {
-    float count = this->LifeLevelDisplay.Num();
-    for (int i = 0; i < count; i += 1) {
-        float min = i * 100 / count;
-        float max = (i + 1) * 100 / count;
-        float alpha = (life - min) / (max - min);
-        if (alpha < 0) {
-            alpha = 0;
-        } else if (alpha > 1) {
-            alpha = 1;
+void UMainUserWidget::SetLifeDisplay(double life) {
+    double count = this->LifeLevelDisplay.Num();
+    for (double i = 0.f; i < count; i += 1.f) {
+        double min = i * 100.f / count;
+        double max = (i + 1) * 100.f / count;
+        double alpha = (life - min) / (max - min);
+        if (alpha < 0.f) {
+            alpha = 0.f;
+        } else if (alpha > 1.f) {
+            alpha = 1.f;
         }
         this->LifeLevelDisplay[i]->SetOpacity(alpha);
     }
