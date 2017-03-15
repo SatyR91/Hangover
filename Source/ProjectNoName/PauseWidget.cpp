@@ -38,4 +38,6 @@ void UPauseWidget::PlayButtonClicked() {
 
 void UPauseWidget::ReturnMainMenuButtonCliked() {
     UE_LOG(LogTemp, Warning, TEXT("void UPauseWidget::ReturnMainMenuButtonCliked"));
+    
+    UGameplayStatics::OpenLevel(GetWorld(), "Menu_HUD");
 }
