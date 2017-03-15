@@ -19,6 +19,10 @@ private:
     
 public:
     void Init();
+    
+    UFUNCTION()
     void PlayButtonClicked();
+    
+    UFUNCTION()
     void ReturnMainMenuButtonCliked();
 };
